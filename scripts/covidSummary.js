@@ -55,61 +55,30 @@ async function insertCountryStats(slug) {
   const countries = summary.Countries;
 
   let countryInfo = countries[slugSelectedIndex];
-
+  let country = countryInfo.Country;
   let confirmedCases = countryInfo.TotalConfirmed;
   let totalDeaths = countryInfo.TotalDeaths;
   let dateUpdated = countryInfo.Date;
-  console.log(confirmedCases);
-  console.log(totalDeaths);
-  console.log(dateUpdated);
+
+  console.group(`Country: ${country}`);
+  console.log(`Cases: ${confirmedCases}`);
+  console.log(`Deaths: ${totalDeaths}`);
+  console.log(`Date: ${dateUpdated}`);
+  console.groupEnd(`Country: ${country}`);
 
   spanConfirmed.textContent = `${fancyVisualNumber(confirmedCases)}`;
   spanDeaths.textContent = `${fancyVisualNumber(totalDeaths)}`;
-  spanDate.textContent = `${understandableDate(dateUpdated)}H`;
+  spanDate.textContent = `${understandableDate(dateUpdated)}`;
 }
 
 selectCountries.addEventListener("change", function () {
   const optionSelected = this.options[this.options.selectedIndex];
   const slug = optionSelected.value;
-  console.log(optionSelected.value);
 
   insertCountryStats(slug);
 });
 
+console.log("Countries:", countriesArray);
+console.log("Slugs:", slugsArray);
+
 createCountriesOptions();
-
-console.log(countriesArray);
-console.log(slugsArray);
-
-function understandableDate(date) {
-  let oldDate = date;
-  let pointIndex = oldDate.indexOf(".");
-  let newDate = oldDate.slice(0, pointIndex);
-  let array = newDate.split("T");
-  let dateCompleted = `${array[0]},  ${array[1]}`;
-  // console.log(pointIndex);
-  // console.log(newDate);
-  // console.log(array);
-  // console.log(dateCompleted);
-  return dateCompleted;
-}
-
-// This function is incomplete
-function fancyVisualNumber(number) {
-  let stringNumber = String(number);
-
-  if (stringNumber.length >= 6) {
-    let stringNumber = String(number);
-    let fancyArray = stringNumber.match(/.{1,3}(.$)?/g);
-
-    let fancyString = "";
-    for (let number of fancyArray) {
-      fancyString += number + " ";
-      // console.log(number);
-    }
-    fancyString.trim();
-    return fancyString;
-  } else {
-    return number;
-  }
-}
