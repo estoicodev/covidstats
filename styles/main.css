@@ -93,7 +93,8 @@ ul li {
   text-align: center;
 }
 .select-country__options {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  border-radius: 5px;
   outline: none;
 }
 
@@ -159,7 +160,7 @@ ul li {
     margin-bottom: 48px;
   }
   .select-country__options {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
 }
 @media screen and (min-width: 1024px) {
