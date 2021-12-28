@@ -5,7 +5,8 @@ A simple request to Covid 19 status by place
 - [Demo](https://mauricodev.github.io/covidstats)
 
 ## Features
-- Super basic covid status information of each country
+- Basic covid status information of each country
+- Mortality rate of each country
 - Responsive design
 
 ## Demo Screen
@@ -25,3 +26,4 @@ A simple request to Covid 19 status by place
 - [Cómo puedo separar una string, cada n caracteres?](https://es.stackoverflow.com/questions/140382/c%C3%B3mo-puedo-separar-una-string-cada-n-caracteres/140399)
 - [set option "selected" attribute from dynamic created option](https://stackoverflow.com/questions/4590311/set-option-selected-attribute-from-dynamic-created-option)
 - [Invertir una cadena en JavaScript](https://www.delftstack.com/es/howto/javascript/reverse-string-javascript/)
+- [How to round to at most 2 decimlas places if neccesary](https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary)
