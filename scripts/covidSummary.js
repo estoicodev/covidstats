@@ -5,6 +5,7 @@ async function fetchData(url_api) {
 const selectCountries = document.getElementById("countries"),
   spanConfirmed = document.querySelector(".stat--confirmed"),
   spanDeaths = document.querySelector(".stat--deaths"),
+  spanRate = document.querySelector(".stat--rate"),
   spanDate = document.querySelector(".stat--date");
 
 let countriesArray = [];
@@ -68,6 +69,7 @@ async function insertCountryStats(slug) {
 
   spanConfirmed.textContent = `${fancyVisualNumber(confirmedCases)}`;
   spanDeaths.textContent = `${fancyVisualNumber(totalDeaths)}`;
+  spanRate.textContent = `${mortalityRate(confirmedCases, totalDeaths)}%`;
   spanDate.textContent = `${understandableDate(dateUpdated)}`;
 }
 

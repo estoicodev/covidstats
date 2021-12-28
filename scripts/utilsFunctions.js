@@ -1,4 +1,6 @@
-// This function is complete
+function reverseString(s) {
+  return s.split("").reverse().join("");
+}
 function fancyVisualNumber(number) {
   let stringNumber = String(number);
   let reverseNumber = reverseString(stringNumber);
@@ -17,10 +19,6 @@ function fancyVisualNumber(number) {
     return number;
   }
 }
-function reverseString(s) {
-  return s.split("").reverse().join("");
-}
-
 function understandableDate(date) {
   let oldDate = date;
   let newDate = oldDate.slice(0, oldDate.indexOf("T"));
@@ -30,4 +28,11 @@ function understandableDate(date) {
 
   let understandableDate = reverseDate;
   return understandableDate;
+}
+function roundToTwo(num) {
+  return +(Math.round(num + "e+2") + "e-2");
+}
+function mortalityRate(cases, deaths) {
+  let rate = (deaths * 100) / cases;
+  return roundToTwo(rate);
 }
