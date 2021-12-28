@@ -19,9 +19,6 @@ A simple request to Covid 19 status by place
 - COVID19 API
 
 
-## Credits
-- [Function to convert 24 hours to 12 hours](https://www.codegrepper.com/code-examples/javascript/convert+24+hours+to+12+hours+javascript)
-
 ## Useful resources
 - [Cómo puedo separar una string, cada n caracteres?](https://es.stackoverflow.com/questions/140382/c%C3%B3mo-puedo-separar-una-string-cada-n-caracteres/140399)
 - [set option "selected" attribute from dynamic created option](https://stackoverflow.com/questions/4590311/set-option-selected-attribute-from-dynamic-created-option)
