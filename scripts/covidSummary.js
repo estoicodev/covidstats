@@ -46,6 +46,12 @@ async function createCountriesOptions() {
     countryOption.setAttribute("value", `${slugs[i]}`);
     countryOption.textContent = `${countries[i]}`;
     selectCountries.appendChild(countryOption);
+
+    // Default option
+    if (slugs[i] === "peru") {
+      countryOption.setAttribute("selected", "");
+      insertCountryStats(slugs[i]);
+    }
   }
 }
 
