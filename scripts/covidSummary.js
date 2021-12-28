@@ -46,12 +46,6 @@ async function createCountriesOptions() {
     countryOption.setAttribute("value", `${slugs[i]}`);
     countryOption.textContent = `${countries[i]}`;
     selectCountries.appendChild(countryOption);
-
-    // Default option
-    if (slugs[i] === "peru") {
-      countryOption.setAttribute("selected", "");
-      insertCountryStats(slugs[i]);
-    }
   }
 }
 
@@ -66,12 +60,23 @@ async function insertCountryStats(slug) {
   let confirmedCases = countryInfo.TotalConfirmed;
   let totalDeaths = countryInfo.TotalDeaths;
   let dateUpdated = countryInfo.Date;
+  consoleGroupByOption(country, confirmedCases, totalDeaths, dateUpdated);
 
-  console.group(`Country: ${country}`);
-  console.log(`Cases: ${confirmedCases}`);
-  console.log(`Deaths: ${totalDeaths}`);
-  console.log(`Date: ${dateUpdated}`);
-  console.groupEnd(`Country: ${country}`);
+  spanConfirmed.textContent = `${fancyVisualNumber(confirmedCases)}`;
+  spanDeaths.textContent = `${fancyVisualNumber(totalDeaths)}`;
+  spanRate.textContent = `${mortalityRate(confirmedCases, totalDeaths)}%`;
+  spanDate.textContent = `${understandableDate(dateUpdated)}`;
+}
+
+async function requestGlobalStats() {
+  const summary = await fetchData(`https://api.covid19api.com/summary`);
+  const global = summary.Global;
+
+  let option = "Global";
+  let confirmedCases = global.TotalConfirmed;
+  let totalDeaths = global.TotalDeaths;
+  let dateUpdated = global.Date;
+  consoleGroupByOption(option, confirmedCases, totalDeaths, dateUpdated);
 
   spanConfirmed.textContent = `${fancyVisualNumber(confirmedCases)}`;
   spanDeaths.textContent = `${fancyVisualNumber(totalDeaths)}`;
@@ -81,12 +86,17 @@ async function insertCountryStats(slug) {
 
 selectCountries.addEventListener("change", function () {
   const optionSelected = this.options[this.options.selectedIndex];
-  const slug = optionSelected.value;
-
-  insertCountryStats(slug);
+  if (optionSelected.value === "all-countries") {
+    requestGlobalStats();
+  } else {
+    const slug = optionSelected.value;
+    console.log(slug);
+    insertCountryStats(slug);
+  }
 });
 
 console.log("Countries:", countriesArray);
 console.log("Slugs:", slugsArray);
 
+requestGlobalStats();
 createCountriesOptions();

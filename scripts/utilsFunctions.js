@@ -1,3 +1,11 @@
+function consoleGroupByOption(option, cases, deaths, date) {
+  console.group(`Country: ${option}`);
+  console.log(`Cases: ${cases}`);
+  console.log(`Deaths: ${deaths}`);
+  console.log(`Date: ${date}`);
+  console.groupEnd(`Country: ${option}`);
+}
+
 function reverseString(s) {
   return s.split("").reverse().join("");
 }
