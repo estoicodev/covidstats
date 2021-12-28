@@ -11,7 +11,7 @@ A simple request to Covid 19 status by place
 
 ## Demo Screen
 
-![covidstat_home](https://user-images.githubusercontent.com/70554280/147291899-e54ae80a-3164-4e57-bb7d-339ef2df3d36.png)
+![demo_covid_stats](https://user-images.githubusercontent.com/70554280/147535373-8d55793c-fd77-40d9-a101-d89bd1ecffb0.png)
 
 
 ## Built With
